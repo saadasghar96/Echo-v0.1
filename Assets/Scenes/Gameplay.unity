@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -874,6 +874,8 @@ MonoBehaviour:
   playerController: {fileID: 0}
   guideController: {fileID: 0}
   memoryTileController: {fileID: 0}
+  clueButton: {fileID: 710614129}
+  remindMeButton: {fileID: 269557089}
   levelCompletePanel: {fileID: 1857258643}
   levelFailPanel: {fileID: 848804479}
   memoryTile:
@@ -884,6 +886,7 @@ MonoBehaviour:
   - {fileID: 102554390796762748, guid: 99c53148f1a7f5847931325ca6158b7d, type: 3}
   - {fileID: 3948878713240775081, guid: fb769d16961994947bf02117f545ad26, type: 3}
   - {fileID: 415092452380886937, guid: 76c0645c2b3207f4ebec6ce142222c0c, type: 3}
+  maxTiles: 1
 --- !u!4 &667876213
 Transform:
   m_ObjectHideFlags: 0

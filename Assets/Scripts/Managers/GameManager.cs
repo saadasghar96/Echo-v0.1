@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public GuideController guideController;
     public MemoryTileController memoryTileController;
+
+    [Header("Buttons")]
+    [Header("UI")]
+    public Button clueButton;
+    public Button remindMeButton;
     [Header("Panel")]
     public GameObject levelCompletePanel;
     public GameObject levelFailPanel;
@@ -36,12 +42,13 @@ public class GameManager : MonoBehaviour
     float yPos; // Memory Tile Y position
     string seedPhrase;
     int seedHash;
+    int maxTiles = 99;
 
     void Start() => StartGame();
 
     void StartGame()
     {
-        gameMode = GameMode.Infinite;
+        gameMode = GameMode.Levels;
 
         // Choose game mode
         if (gameMode == GameMode.Levels)
@@ -64,7 +71,13 @@ public class GameManager : MonoBehaviour
         GameObject memoryTileParent = new GameObject("MemoryTileParent");
         GameObject tempMemoryTile;
 
-        for (int i = 0; i < 10; i++)
+        //! DELETE THIS LATER
+        PlayerPrefs.SetInt("Level", maxTiles);
+
+        // Cap tile production till maxTiles   
+        int totalTiles = PlayerPrefs.GetInt("Level") <= maxTiles ?
+        (PlayerPrefs.GetInt("Level")) : maxTiles;
+        for (int i = 0; i < totalTiles; i++)
         {
             tempMemoryTile = Instantiate(memoryTile[Random.Range(0, memoryTile.Length)], new Vector3(0f, yPos, 0f), Quaternion.identity);
             tempMemoryTile.transform.SetParent(memoryTileParent.transform);
@@ -72,6 +85,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Spawn incremental blocks based on user succession
     void SpawnInfinite()
     {
         // Set seed
@@ -101,7 +115,10 @@ public class GameManager : MonoBehaviour
     {
 
         // Increment attempts
+        if (playerController.playerAttempts > 0)
         playerController.playerAttempts++;
+        else
+        remindMeButton.interactable = false;
     }
 
     // Gives 1 hint
@@ -109,7 +126,10 @@ public class GameManager : MonoBehaviour
     {
 
         // Increment attempts
+        if (playerController.playerAttempts > 0)
         playerController.playerAttempts++;
+        else
+        clueButton.interactable = false;
     }
 
     Color32 RandomColor()
