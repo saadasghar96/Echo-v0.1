@@ -36,13 +36,14 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject[] memoryTile;
 
-    Dictionary<int, Color32> memoryMap = new Dictionary<int, Color32>();
+    Dictionary<int, Color32>[] memoryMap;
 
     // Private Variables
     float yPos; // Memory Tile Y position
     string seedPhrase;
     int seedHash;
     int maxTiles = 99;
+    Color32 randomColor;
 
     void Start() => StartGame();
 
@@ -77,8 +78,16 @@ public class GameManager : MonoBehaviour
         // Cap tile production till maxTiles   
         int totalTiles = PlayerPrefs.GetInt("Level") <= maxTiles ?
         (PlayerPrefs.GetInt("Level")) : maxTiles;
+
+        // Create dictionary
+        memoryMap = new Dictionary<int, Color32>[totalTiles];
+
+        // Loop through total tiles
         for (int i = 0; i < totalTiles; i++)
         {
+            // Save co-ordinates
+            //SaveCoordinates(i, );
+            //memoryMap[i].Add(i);
             tempMemoryTile = Instantiate(memoryTile[Random.Range(0, memoryTile.Length)], new Vector3(0f, yPos, 0f), Quaternion.identity);
             tempMemoryTile.transform.SetParent(memoryTileParent.transform);
             yPos += 20f;
@@ -132,9 +141,15 @@ public class GameManager : MonoBehaviour
         clueButton.interactable = false;
     }
 
+    void SaveCoordinates(int index, int value, Color32 color)
+    {
+        memoryMap[index].Add(value, color);
+    }
+
     Color32 RandomColor()
     {
-        return new Color32((byte) Random.Range(0f, 255f), (byte) Random.Range(0, 255f), (byte) Random.Range(0f, 255f), (byte) 255f);
+        randomColor = new Color32((byte) Random.Range(0f, 255f), (byte) Random.Range(0, 255f), (byte) Random.Range(0f, 255f), (byte) 255f);
+        return randomColor;
     }
 
     void EndGame()
