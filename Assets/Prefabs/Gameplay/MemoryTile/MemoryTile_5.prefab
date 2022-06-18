@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 102554389987300656}
   - component: {fileID: 102554389987300657}
   - component: {fileID: 8863367871844125318}
-  - component: {fileID: 5459915476858336790}
   m_Layer: 0
   m_Name: MemoryTile_3
   m_TagString: Untagged
@@ -122,27 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1874a71d2375047b02c84c0f7f1e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &5459915476858336790
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102554389987300658}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &102554390439165263
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +133,6 @@ GameObject:
   - component: {fileID: 102554390439165261}
   - component: {fileID: 102554390439165258}
   - component: {fileID: 2846131518551818895}
-  - component: {fileID: 2594351930296518175}
   m_Layer: 0
   m_Name: MemoryTile_4
   m_TagString: Untagged
@@ -265,27 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1874a71d2375047b02c84c0f7f1e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &2594351930296518175
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102554390439165263}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &102554390610786918
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +254,6 @@ GameObject:
   - component: {fileID: 102554390610786916}
   - component: {fileID: 102554390610786917}
   - component: {fileID: 1166974403826049203}
-  - component: {fileID: 3219985001868496905}
   m_Layer: 0
   m_Name: MemoryTile_5
   m_TagString: Untagged
@@ -408,27 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1874a71d2375047b02c84c0f7f1e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &3219985001868496905
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102554390610786918}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &102554390796762748
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +410,6 @@ GameObject:
   - component: {fileID: 102554390858790035}
   - component: {fileID: 102554390858790032}
   - component: {fileID: 8510507001493046266}
-  - component: {fileID: 4132930911767780518}
   m_Layer: 0
   m_Name: MemoryTile_2
   m_TagString: Untagged
@@ -586,27 +519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1874a71d2375047b02c84c0f7f1e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &4132930911767780518
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102554390858790037}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &102554391472502605
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +531,6 @@ GameObject:
   - component: {fileID: 102554391472502603}
   - component: {fileID: 102554391472502600}
   - component: {fileID: 6375744139440842478}
-  - component: {fileID: 2216077325636889776}
   m_Layer: 0
   m_Name: MemoryTile_1
   m_TagString: Untagged
@@ -729,24 +640,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1874a71d2375047b02c84c0f7f1e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &2216077325636889776
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102554391472502605}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
