@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     string seedPhrase;
     int seedHash;
     int maxTiles = 99;
+    int randomTile;
     Color32 randomColor;
 
     void Start() => StartGame();
@@ -85,10 +86,17 @@ public class GameManager : MonoBehaviour
         // Loop through total tiles
         for (int i = 0; i < totalTiles; i++)
         {
+            // Get random tile
+            randomTile = Random.Range(0, memoryTile.Length);
+            
             // Save co-ordinates
-            //SaveCoordinates(i, );
+            SaveCoordinates(i, memoryTile[randomTile].transform.childCount, RandomColor());
+
+            // Color tiles based on co-ordinates
+            ColorTiles(memoryTile[randomTile]);
+
             //memoryMap[i].Add(i);
-            tempMemoryTile = Instantiate(memoryTile[Random.Range(0, memoryTile.Length)], new Vector3(0f, yPos, 0f), Quaternion.identity);
+            tempMemoryTile = Instantiate(memoryTile[randomTile], new Vector3(0f, yPos, 0f), Quaternion.identity);
             tempMemoryTile.transform.SetParent(memoryTileParent.transform);
             yPos += 20f;
         }
@@ -144,6 +152,14 @@ public class GameManager : MonoBehaviour
     void SaveCoordinates(int index, int value, Color32 color)
     {
         memoryMap[index].Add(value, color);
+    }
+
+    void ColorTiles(GameObject _memoryTile)
+    {
+        for (int i=0; i<_memoryTile.transform.childCount; i++)
+        {
+            _memoryTile.transform.GetChild(i).GetComponent<SpriteRenderer>().color = randomColor;
+        }
     }
 
     Color32 RandomColor()
