@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject[] memoryTile;
 
-    Dictionary<int, Color32>[] memoryMap;
+    Dictionary<int, Color32[]>[] memoryMap;
 
     // Private Variables
     float yPos; // Memory Tile Y position
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     int seedHash;
     int maxTiles = 99;
     int randomTile;
-    Color32 randomColor;
+    Color32[] randomColor;
 
     void Start() => StartGame();
 
@@ -81,16 +81,25 @@ public class GameManager : MonoBehaviour
         (PlayerPrefs.GetInt("Level")) : maxTiles;
 
         // Create dictionary
-        memoryMap = new Dictionary<int, Color32>[totalTiles];
+        memoryMap = new Dictionary<int, Color32[]>[totalTiles];
 
         // Loop through total tiles
         for (int i = 0; i < totalTiles; i++)
         {
             // Get random tile
             randomTile = Random.Range(0, memoryTile.Length);
-            
+
+            // Initialize dictionary
+            memoryMap[i] = new Dictionary<int, Color32[]>();
+
+            // Initialize color array
+            randomColor = new Color32[memoryTile[randomTile].transform.childCount];
+
+            // Store random color
+            for (int j = 0; j < randomColor.Length; j++) randomColor[j] = RandomColor();
+
             // Save co-ordinates
-            SaveCoordinates(i, memoryTile[randomTile].transform.childCount, RandomColor());
+            SaveCoordinates(i, memoryTile[randomTile].transform.childCount, randomColor);
 
             // Color tiles based on co-ordinates
             ColorTiles(memoryTile[randomTile]);
@@ -149,23 +158,25 @@ public class GameManager : MonoBehaviour
         clueButton.interactable = false;
     }
 
-    void SaveCoordinates(int index, int value, Color32 color)
+    void SaveCoordinates(int index, int value, Color32[] color)
     {
         memoryMap[index].Add(value, color);
     }
 
     void ColorTiles(GameObject _memoryTile)
     {
-        for (int i=0; i<_memoryTile.transform.childCount; i++)
+        for (int i=0; i < _memoryTile.transform.childCount; i++)
         {
-            _memoryTile.transform.GetChild(i).GetComponent<SpriteRenderer>().color = randomColor;
+            for (int j = 0; j < randomColor.Length; j++)
+            {
+                _memoryTile.transform.GetChild(j).GetComponent<SpriteRenderer>().color = randomColor[j];
+            }
         }
     }
 
     Color32 RandomColor()
     {
-        randomColor = new Color32((byte) Random.Range(0f, 255f), (byte) Random.Range(0, 255f), (byte) Random.Range(0f, 255f), (byte) 255f);
-        return randomColor;
+        return new Color32((byte) Random.Range(0f, 255f), (byte) Random.Range(0, 255f), (byte) Random.Range(0f, 255f), (byte) 255f);
     }
 
     void EndGame()
